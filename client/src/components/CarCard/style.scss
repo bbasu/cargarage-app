@@ -1,0 +1,21 @@
+.car-card {
+  margin-bottom: 2rem;
+  flex: 0 0 31.333%;
+  max-width: 0 0 31.333%;
+  margin-right: 3%;
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .call-to-actions {
+      display: flex;
+      justify-content: space-between;
+      > div {
+        flex: 0 0 47%;
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+<div class="home">
+    <Header
+        v-bind:title="fullTitle"
+        v-bind:intro="'Age: ' + car.age + ' | ' + 'Price: ' + car.price"/>
+    <b-container>
+        <b-breadcrumb active-class="active">
+            <b-breadcrumb-item @click="goHome()">Home</b-breadcrumb-item>
+            <b-breadcrumb-item class="active" :disabled="true">{{fullTitle}}</b-breadcrumb-item>
+        </b-breadcrumb>
+
+        <img class="car-image" :src="`https://loremflickr.com/350/200/${car.brand},${car.title}`" />
+
+        <div class="services" v-if="car.services.length > 0">
+            <h2>Services:</h2>
+            <ul>
+                <li v-for="service in car.services" :key="service.date">
+                <b>{{service.name}}</b>:
+                <span>{{ service.date | moment("DD/MM/YYYY") }}</span>
+                </li>
+            </ul>
+        </div>
+        <div v-else>
+            <h2>This car has no services</h2>
+            <br />
+        </div>
+
+        <div class="btn-container">
+            <b-button variant="success" v-b-modal.modal-center>Edit</b-button>
+            <b-button variant="danger" @click="deleteCar()">Delete</b-button>
+            <b-button variant="info" @click="goHome()">Back</b-button>
+        </div>
+
+        <EditCar v-if="loaded" v-bind:car="car" />
+    </b-container>
+</div>

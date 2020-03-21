@@ -1,0 +1,16 @@
+<b-card
+    :title="car.brand + ' - ' + car.title"
+    :img-src="`https://loremflickr.com/350/200/${car.brand},${car.title}`"
+    img-alt="Image"
+    img-top
+    tag="article"
+    class="car-card">
+    <div class="call-to-actions">
+        <b-button href="#" @click="viewCar(car._id)" variant="primary">Car Details</b-button>
+        <b-button
+            v-if="!ownerpage"
+            href="#"
+            @click="viewOwner(car.owner._id)"
+            variant="primary">Owner Details</b-button>
+    </div>
+</b-card>

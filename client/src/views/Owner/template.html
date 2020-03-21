@@ -1,0 +1,21 @@
+<div class="home">
+    <Header v-bind:title="fullTitle" v-bind:intro="owner.email" />
+    <b-container>
+        <b-breadcrumb active-class="active">
+            <b-breadcrumb-item @click="goHome()">Home</b-breadcrumb-item>
+            <b-breadcrumb-item class="active" :disabled="true">{{fullTitle}}</b-breadcrumb-item>
+        </b-breadcrumb>
+
+        <br />
+        <h2>Cars:</h2>
+        <br />
+
+        <b-row class="car-row">
+            <CarCard v-for="car in owner.cars" :key="car._id" v-bind:car="car" />
+        </b-row>
+
+        <div class="btn-container">
+            <b-button variant="info" @click="goHome()">Back</b-button>
+        </div>
+    </b-container>
+</div>
