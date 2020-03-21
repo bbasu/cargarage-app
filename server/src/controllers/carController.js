@@ -7,7 +7,7 @@ const Car = require('../models/Car')
 // Get all cars
 exports.getCars = async () => {
 	try {
-		const cars = await Car.find()
+		const cars = await Car.find().limit(9);
 		return cars
 	} catch (err) {
 		throw boom.boomify(err)
